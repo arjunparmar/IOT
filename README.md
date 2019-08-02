@@ -10,4 +10,7 @@ In iot project basically we are doing two application of it
     
 For real time data storage we are using google firebase"s real time database.
 
-HArdwarwe we are using is nodemcu which has inbuilt ESP8266 wifi module which control the things.
+HArdwarwe we are using is nodemcu which has inbuilt ESP8266 wifi module which control the things.We programmed it through ArduinoIDE so we need to install some packages like ESP8266
+                              Arduinojson
+                              FirebaseArduino Libraries.
+                         
