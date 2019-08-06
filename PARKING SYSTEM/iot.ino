@@ -1,6 +1,8 @@
+#include <ArduinoJson.h>
+
 
 //libraries used
-#include <ArduinoJson.h>
+
 #include <Firebase.h>
 #include <FirebaseArduino.h>
 #include <FirebaseCloudMessaging.h>
@@ -8,16 +10,13 @@
 #include <ESP8266WiFi.h>
 
 //definations
-#define FIREBASE_HOST "arraydata-2396a.firebaseio.com"
-#define FIREBASE_AUTH "6MjKdwhrABSOez25bll4UM971OnbpHhxNfASWlZP"
+#define FIREBASE_HOST ""
+#define FIREBASE_AUTH ""
 
 //global declarations
 const char* ssid = "xyz";
 const char* password = "12345678";
-int showled1=14;
-int showled2=15;
-int sensor1=13;
-int sensor2=12;
+int sensor[3]={12,13,14};
 
 //server specified
 WiFiServer server(8080);
@@ -59,10 +58,10 @@ void firebasereconnect() //Reconnect function if auth. fails at first
   set_firebase();
 
   //setting pins
-  pinMode(sensor1,INPUT); //irsensor1
-  pinMode(sensor2,INPUT); //irsensor2
-  pinMode(showled1,OUTPUT); //parked notifying leds
-  pinMode(showled2,OUTPUT);
+  pinMode(sensor[0],INPUT); //irsensor1
+  pinMode(sensor[1],INPUT); //irsensor2
+  pinMode(sensor[2],INPUT); //parked notifying leds
+ // pinMode(sensor[3],INPUT);
 }
 
 void loop() 
@@ -73,11 +72,13 @@ void loop()
       Serial.println(Firebase.error());
       firebasereconnect();
     }
-  int data1=digitalRead(sensor1);
-  int data2=digitalRead(sensor2);
-  Firebase.setInt("/data1",data1); //setting parked or not digitally to firebase 
-  Firebase.setInt("/data2",data2);
-  if(data1==1)
+  int data1=digitalRead(sensor[0]);
+  int data2=digitalRead(sensor[1]);
+  int data3=digitalRead(sensor[2]);
+  Firebase.setInt("/slot1",data1); //setting parked or not digitally to firebase 
+  Firebase.setInt("/slot2",data2);
+  Firebase.setInt("/slot3",data3);
+  /*if(data1==1)
   {
   digitalWrite(showled1,HIGH);
   delay(1000);
@@ -88,5 +89,5 @@ void loop()
   digitalWrite(showled2,HIGH);
   delay(1000);
   digitalWrite(showled2,LOW);  
-  }
+  }*/
 }
