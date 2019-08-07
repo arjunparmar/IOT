@@ -1,0 +1,45 @@
+body{
+    text-align:center;
+    background-color: rgb(21, 26, 31);
+}
+h1
+{
+    color: rgb(82, 83, 87);
+    margin-left:42%;
+    text-align:left;
+}
+
+.left
+{
+    float:left;   
+    width:7cm;
+    height:8cm;
+    border: 15px inset rgb(230, 230, 12);
+    margin:0.4cm;
+    margin-left:35%;
+    padding:15px;
+    background-color:rgb(107, 107, 110);
+}
+.right
+{
+    float:left;
+    width:7cm;
+    height:8cm;
+    border: 15px inset rgb(230, 230, 12);
+    margin:0.4cm;
+    padding:15px;
+    background-color:rgb(107, 107, 110);
+   
+    
+}
+.img
+{
+    width:3cm;
+    height:3cm;
+    margin:10px;
+}
+h4{
+    color:rgb(21, 26, 31);
+    font-size:25px;
+}
+    
